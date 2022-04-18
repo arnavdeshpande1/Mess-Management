@@ -12,7 +12,7 @@ const App = () =>
 <Router>
   <Fragment>
     <Navbar />
-
+    <br/><br/><br/>
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="register" element={<Register />} />
