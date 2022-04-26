@@ -4,8 +4,8 @@ import {
     USER_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
-    LOGIN_FAIL
-    // LOGOUT,
+    LOGIN_FAIL,
+    LOGOUT
     // ACCOUNT_DELETED
   } from '../actions/types';
   
@@ -39,6 +39,7 @@ import {
         case REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:
+        case LOGOUT:
             localStorage.removeItem('token');
             return {
                 ...state,
