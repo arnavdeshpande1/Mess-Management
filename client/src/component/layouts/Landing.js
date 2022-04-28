@@ -18,8 +18,10 @@ export const Landing = ({ isAuthenticated }) => {
           Start Managing your <b>Business</b> in smart way
         </p>
         <div className="buttons">
+          <Link to="/admin_register" className="btn btn-primary">Admin Sign Up</Link>
           <Link to="/register" className="btn btn-primary">Sign Up</Link>
-          <Link to="/login" className="btn btn-light">Login</Link>
+          <Link to="/login" className="btn btn-primary">Login</Link>
+          <Link to="/admin_login" className="btn btn-primary">Admin Login</Link>
         </div>
       </div>
     </div>

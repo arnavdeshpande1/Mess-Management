@@ -4,8 +4,11 @@ import { setAlert } from './alerts';
 import 
 { 
     REGISTER_SUCCESS, 
+    ADMIN_REGISTER_SUCCESS,
     REGISTER_FAIL,
+    ADMIN_REGISTER_FAIL,
     USER_LOADED,
+    ADMIN_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
@@ -37,6 +40,31 @@ export const loadUser = () => async (dispatch) => {
     }
 
   };
+
+
+//Load Admin
+
+export const loadAdmin = () => async (dispatch) => {
+    
+    if(localStorage.token){
+        setAuthToken(localStorage.token);
+    }
+
+    try {
+        
+        const res = await axios.get('/api/authadmin');
+        dispatch({
+            type: ADMIN_LOADED,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: AUTH_ERROR
+        });
+    }
+
+  };
+
 
 
 //Register User
@@ -71,6 +99,43 @@ export const register = ({ name,email,password }) => async dispatch =>{
         });
       }
 };
+
+
+//Register Admin
+
+export const admin_register = ({ name,email,password }) => async dispatch =>{
+    const config = {
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({name,email,password});
+
+    try {
+        const res = await axios.post('/api/admin',body,config);
+    
+        dispatch({
+          type: ADMIN_REGISTER_SUCCESS,
+          payload: res.data
+        });
+
+        dispatch(loadAdmin());
+
+      } catch (err) {
+        const errors = err.response.data.errors;
+
+        if(errors){
+            errors.forEach(error => 
+                dispatch(setAlert(error.msg,'danger'))); 
+        }
+        dispatch({
+        type: ADMIN_REGISTER_FAIL
+        });
+      }
+};
+
+
 
 
 //Login User
@@ -113,3 +178,35 @@ export const logout = () => dispatch => {
     dispatch({ type:CLEAR_PROFILE });
 };
 
+//Login Admin
+export const admin_login = (email,password) => async dispatch =>{
+    const config = {
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({email,password});
+
+    try {
+        const res = await axios.post('/api/authadmin',body,config);
+    
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: res.data
+        });
+
+        dispatch(loadAdmin());
+
+      } catch (err) {
+        const errors = err.response.data.errors;
+
+        if(errors){
+            errors.forEach(error => 
+                dispatch(setAlert(error.msg,'danger'))); 
+        }
+        dispatch({
+        type: LOGIN_FAIL
+        });
+      }
+};

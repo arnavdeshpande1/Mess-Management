@@ -1,7 +1,10 @@
 import {
     REGISTER_SUCCESS,
+    ADMIN_REGISTER_SUCCESS,
     REGISTER_FAIL,
+    ADMIN_REGISTER_FAIL,
     USER_LOADED,
+    ADMIN_LOADED,
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
@@ -21,6 +24,7 @@ import {
   
     switch (type) {
         case USER_LOADED:
+        case ADMIN_LOADED:
             return {
             ...state,
             isAuthenticated: true,
@@ -28,6 +32,7 @@ import {
             user: payload
             };
         case REGISTER_SUCCESS:
+        case ADMIN_REGISTER_SUCCESS:  
         case LOGIN_SUCCESS:
             localStorage.setItem('token',payload.token);
             return {
@@ -37,6 +42,7 @@ import {
                 loading:false
             }
         case REGISTER_FAIL:
+        case ADMIN_REGISTER_FAIL:
         case AUTH_ERROR:
         case LOGIN_FAIL:
         case LOGOUT:
