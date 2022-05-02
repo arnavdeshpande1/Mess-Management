@@ -32,8 +32,6 @@ export const AdminReg = ({setAlert,admin_register,isAuthenticated}) => {
   };
 
   if (isAuthenticated) {
-    console.log(isAuthenticated);
-    console.log("inside isauth");
     return <Navigate to="/admindashboard" />;
   }
 
@@ -75,7 +73,7 @@ export const AdminReg = ({setAlert,admin_register,isAuthenticated}) => {
         <input type="submit" className="btn btn-primary" value="Admin Register" />
       </form>
       <p className="my-1">
-        Already have an account? <Link to="/admin_login">Admin Sign In</Link>
+        Already have an account? <Link to="/adminlogin">Sign In</Link>
       </p>
     </Fragment>
   )

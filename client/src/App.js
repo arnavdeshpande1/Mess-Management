@@ -19,6 +19,7 @@ import { loadUser } from './actions/auth';
 import Admin from './component/auth/Admin.js';
 import AdminReg from './component/auth/AdminReg';
 import adminDashboard from './component/dashboard/adminDashboard';
+import addColumn from './component/dashboard/addColumn';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="create-profile" element={<PrivateRoute component={CreateProfile} />} />
             <Route path="admin_login" element={<Admin />} />
             <Route path="admin_register" element={<AdminReg />} />
+            <Route path="add" element={<addColumn />} />
           </Routes>
         </Fragment>
       </Router>

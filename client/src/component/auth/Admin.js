@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import { admin_login } from '../../actions/auth';
 
 
-export const Admin = ({ admin_login,isAuthenticated }) => {
+export const AdminLogin = ({ admin_login,isAuthenticated }) => {
 
-    
   const [formData,setFormData] = useState({
     email:'',
     password:''
@@ -24,13 +23,13 @@ export const Admin = ({ admin_login,isAuthenticated }) => {
     admin_login(email,password);
   };
 
-  // Redirect if looged in
+  //Redirect if admin looged in
   if (isAuthenticated) {
+    // console.log(1);
     return <Navigate to="/admindashboard" />;
   }
 
   return (
-    
     <Fragment>
       <h1 className="large text-primary">Admin Sign In</h1>
       <p className="lead"><i className="fas fa-user"></i> Log Into Your Account</p>
@@ -48,15 +47,15 @@ export const Admin = ({ admin_login,isAuthenticated }) => {
           />
         </div>
         <input type="submit" className="btn btn-primary" value="Login" />
-      </form> 
+      </form>
       <p className="my-1">
-        Don't have an account? <Link to="/admin_register">Admin Sign UP</Link>
+        Don't have an account? <Link to="/register">Sign UP</Link>
       </p>
     </Fragment>
   )
 }
 
-Admin.propTypes = {
+AdminLogin.propTypes = {
   admin_login:PropTypes.func.isRequired,
   isAuthenticated: PropTypes.bool
 }
@@ -66,4 +65,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, { admin_login })(Admin);
+export default connect(mapStateToProps, { admin_login })(AdminLogin);

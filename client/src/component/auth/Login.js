@@ -25,6 +25,7 @@ export const Login = ({ login,isAuthenticated }) => {
 
   //Redirect if looged in
   if (isAuthenticated) {
+    // console.log(0);
     return <Navigate to="/dashboard" />;
   }
 

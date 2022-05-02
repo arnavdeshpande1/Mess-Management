@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { getCurrentProfile } from '../../actions/profile'
 import Spinner from '../layouts/Spinner'
 import { Fragment } from 'react'
-import { Link } from 'react-router-dom'
+import { Link,Navigate } from 'react-router-dom'
+import addColumn from './addColumn'
 
 const adminDashboard = ({
     getCurrentProfile,
@@ -18,21 +19,11 @@ const adminDashboard = ({
     return loading && profile===null ? <Spinner/> : <Fragment>
         <h1 className="large text-primary">Admin Dashboard</h1>
         <p className="lead">
-            <i className="fas fa-user" /> Welcome {admin && admin.name}
+            <i className="fas fa-user" /> Welcome 
         </p>
-        {/* if there is no profile  */}
+        <br/>
 
-        {/* {profile !== null ? 
-        <Fragment>
-            has
-        </Fragment> : 
-        
-        <Fragment>
-            <p>You have not yet setup a profile, please add some info</p>
-            <Link to="/create-profile" className="btn btn-primary my-1">
-                Create Profile
-            </Link>
-        </Fragment>} */}
+        <button className="btn btn-primary">Add In The Table</button>
 
     </Fragment>;
 };
