@@ -6,6 +6,18 @@ const app = express();
 //connect database
 connectDB();
 
+
+const cors = require('cors');
+const corsOpt = {
+    origin: '*',
+    credentials: true,
+    methods: ['GET','POST','DELETE'],
+    allowedHeaders: ['Content-Type'],
+    exposedHeaders: ['Content-Type']
+};
+app.use(cors(corsOpt));
+
+
 // to make req.body work 
 app.use(express.json());
 
