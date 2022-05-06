@@ -73,7 +73,7 @@ export const AdminReg = ({setAlert,admin_register,isAuthenticated}) => {
         <input type="submit" className="btn btn-primary" value="Admin Register" />
       </form>
       <p className="my-1">
-        Already have an account? <Link to="/adminlogin">Sign In</Link>
+        Already have an account? <Link to="/admin_login">Sign In</Link>
       </p>
     </Fragment>
   )

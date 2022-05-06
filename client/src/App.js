@@ -1,6 +1,7 @@
 import './App.css';
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 import  Navbar  from './component/layouts/Navbar';
 import { Landing } from './component/layouts/Landing';
@@ -19,7 +20,7 @@ import { loadUser } from './actions/auth';
 import Admin from './component/auth/Admin.js';
 import AdminReg from './component/auth/AdminReg';
 import adminDashboard from './component/dashboard/adminDashboard';
-import addColumn from './component/dashboard/addColumn';
+import AddDeleteTableRows from './addTable/addDeleteTable';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -37,7 +38,6 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <br/><br/><br/>
           <Alert />
           <Routes>
             <Route path="/" element={<Landing />} />
@@ -49,6 +49,7 @@ const App = () => {
             <Route path="admin_login" element={<Admin />} />
             <Route path="admin_register" element={<AdminReg />} />
             <Route path="add" element={<addColumn />} />
+            <Route path="add_delete" element={<AddDeleteTableRows />} />
           </Routes>
         </Fragment>
       </Router>

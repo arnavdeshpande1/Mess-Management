@@ -15,7 +15,7 @@ import
     LOGOUT,
     CLEAR_PROFILE 
 } from "./types"
-
+import { API } from "../config";
 import setAuthToken from "../utils/serAuthToken";
 import { Navigate } from "react-router-dom";
 
@@ -29,7 +29,7 @@ export const loadUser = () => async (dispatch) => {
 
     try {
         
-        const res = await axios.get('/api/auth');
+        const res = await axios.get(`${API}/auth`);
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -57,7 +57,7 @@ export const loadAdmin = () => async (dispatch) => {
     //         type: AUTH_ERROR
     //     });
     // } catch (err) {
-        const res = await axios.get('/api/authadmin');
+        const res = await axios.get(`${API}/authadmin`);
         dispatch({
             type: ADMIN_LOADED,
             payload: res.data
@@ -80,7 +80,7 @@ export const register = ({ name,email,password }) => async dispatch =>{
     const body = JSON.stringify({name,email,password});
 
     try {
-        const res = await axios.post('/api/users',body,config);
+        const res = await axios.post(`${API}/users`,body,config);
     
         dispatch({
           type: REGISTER_SUCCESS,
@@ -115,7 +115,7 @@ export const admin_register = ({ name,email,password }) => async dispatch =>{
     const body = JSON.stringify({name,email,password});
 
     // try {
-        const res = await axios.post('/api/admin',body,config);
+        const res = await axios.post(`${API}/admin`,body,config);
     
         dispatch({
           type: ADMIN_REGISTER_SUCCESS,
@@ -153,7 +153,7 @@ export const login = (email,password) => async dispatch =>{
     const body = JSON.stringify({email,password});
 
     try {
-        const res = await axios.post('/api/auth',body,config);
+        const res = await axios.post(`${API}/auth`,body,config);
     
         dispatch({
           type: LOGIN_SUCCESS,
@@ -193,7 +193,7 @@ export const admin_login = (email,password) => async dispatch =>{
     const body = JSON.stringify({email,password});
 
     try {
-        const res = await axios.post('/api/authadmin',body,config);
+        const res = await axios.post(`${API}/authadmin`,body,config);
     
         dispatch({
           type: LOGIN_SUCCESS,
