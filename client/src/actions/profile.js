@@ -12,7 +12,7 @@ import {
 //   GET_REPOS,
 //   NO_REPOS
 } from './types';
-
+import { API } from '../config';
 /*
   NOTE: we don't need a config object for axios as the
  default headers in axios are already Content-Type: application/json
@@ -23,7 +23,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async (dispatch) => {
   try {
-    const res = await axios.get('{API}/profile/me');
+    const res = await axios.get(`${API}/profile/me`);
 
     dispatch({
       type: GET_PROFILE,
