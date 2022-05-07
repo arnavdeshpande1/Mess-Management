@@ -30,7 +30,7 @@ app.use('/api/auth',require('./routes/api/auth'));
 app.use('/api/profile',require('./routes/api/profile'));
 app.use('/api/admin',require('./routes/api/admin'));
 app.use('/api/authadmin',require('./routes/api/authadmin'));
-
+app.use('/api/menu', require('./routes/api/menu'))
 
 
 

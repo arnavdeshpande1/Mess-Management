@@ -21,6 +21,7 @@ import Admin from './component/auth/Admin.js';
 import AdminReg from './component/auth/AdminReg';
 import adminDashboard from './component/dashboard/adminDashboard';
 import AddDeleteTableRows from './addTable/addDeleteTable';
+import Additem from './addTable/Additem';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -50,6 +51,7 @@ const App = () => {
             <Route path="admin_register" element={<AdminReg />} />
             <Route path="add" element={<addColumn />} />
             <Route path="add_delete" element={<AddDeleteTableRows />} />
+            <Route path="add_item" element={<Additem />} />
           </Routes>
         </Fragment>
       </Router>

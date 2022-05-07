@@ -42,6 +42,30 @@ export const loadUser = () => async (dispatch) => {
 
   };
 
+//Load User
+
+export const loadmenu = () => async (dispatch) => {
+    
+    if(localStorage.token){
+        setAuthToken(localStorage.token);
+    }
+
+    try {
+        
+        const res = await axios.get(`${API}/menu`);
+        dispatch({
+            type: USER_LOADED,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: AUTH_ERROR
+        });
+    }
+
+  };
+
+
 
 //Load Admin
 
@@ -144,6 +168,7 @@ export const admin_register = ({ name,email,password }) => async dispatch =>{
 
 //Login User
 export const login = (email,password) => async dispatch =>{
+    
     const config = {
         headers : {
             'Content-Type' : 'application/json'
@@ -214,3 +239,18 @@ export const admin_login = (email,password) => async dispatch =>{
         });
       }
 };
+
+//menu item add
+// export const menu_item = ( mess,item ) => {
+//     console.log("added")
+//     const config = {
+//         headers : {
+//             'Content-Type' : 'application/json'
+//         }
+//     }
+//     axios.post(`${API}/menu`,body,config).then(res =>{
+//         alert("post successful");
+//     }).catch(err => alert(err));
+//     const body = JSON.stringify({mess,item});
+    
+// };

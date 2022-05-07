@@ -7,11 +7,10 @@ function AddDeleteTableRows(){
     console.log(rowsData)
     // const rowsData = [];
     const addTableRows = ()=>{
-        console.log("in fun")
+        // console.log("in fun")
         const rowsInput={
-            fullName: "",
-            emailAddress:'',
-            salary:''  
+            name: "",
+            item:""
         } 
         setRowsData([...rowsData, rowsInput])
       
@@ -39,9 +38,8 @@ function AddDeleteTableRows(){
                 <table className="table">
                     <thead>
                       <tr>
-                          <th>Full Name</th>
-                          <th>Email Address</th>
-                          <th>Salary</th>
+                          <th>Name</th>
+                          <th>Item</th>
                           <th><button className="btn btn-outline-success" onClick={addTableRows} >+</button></th>
                       </tr>
                     </thead>

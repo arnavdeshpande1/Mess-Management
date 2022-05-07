@@ -6,6 +6,7 @@ import Spinner from '../layouts/Spinner'
 import { Fragment } from 'react'
 import { Link,Navigate } from 'react-router-dom'
 import addColumn from './addColumn'
+import AddDeleteTableRows from '../../addTable/addDeleteTable'
 
 const adminDashboard = ({
     getCurrentProfile,
@@ -16,16 +17,18 @@ const adminDashboard = ({
     //   getCurrentProfile();
     // }, [getCurrentProfile]);
 
-    return loading && profile===null ? <Spinner/> : <Fragment>
+    return loading ? <Spinner/> : 
+        <Fragment>
+        
         <h1 className="large text-primary">Admin Dashboard</h1>
         <p className="lead">
-            <i className="fas fa-user" /> Welcome 
+            <i className="fas fa-user" /> Welcome
         </p>
         <br/>
 
-        <button className="btn btn-primary">Add In The Table</button>
-
-    </Fragment>;
+        <Link to="/add_delete">Add In the Table</Link>
+        
+        </Fragment>;
 };
 
 adminDashboard.propTypes = {
