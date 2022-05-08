@@ -26,7 +26,7 @@ const adminDashboard = ({
         </p>
         <br/>
 
-        <Link to="/add_delete">Add In the Table</Link>
+        <Link to="/add_item">Add In the Table</Link>
         
         </Fragment>;
 };

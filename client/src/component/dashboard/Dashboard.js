@@ -20,6 +20,7 @@ const Dashboard = ({
         <p className="lead">
             <i className="fas fa-user" /> Welcome {user && user.name}
         </p>
+        <Link to="/show_data"> show Menu </Link>
         
 
     </Fragment>;

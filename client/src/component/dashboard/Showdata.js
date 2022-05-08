@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
- 
+import '../tabledata.css';
+
+
 function TableData() {
     const [data, getData] = useState([])
-    const URL = 'localhost:3000/api/menu';
+    const URL = 'http://localhost:5000/api/menu';
+
  
     useEffect(() => {
         fetchData()
@@ -20,7 +23,7 @@ function TableData() {
             })
  
     }
- 
+    // console.log(data)
     return (
         <>
             <h1>Todays Menu</h1>

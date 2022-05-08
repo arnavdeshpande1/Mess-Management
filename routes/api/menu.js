@@ -33,32 +33,16 @@ async (req,res) => {
         return res.status(400).json({ errors : errors.array() });
     }
 
-    const { mess, item} = req.body; 
-    console.log(mess)
-    console.log(item)
+    const { mess, item} = req.body;
     try {
         
         let menu = await Menu.findOne({ mess });
         
-        // if(menu){
-        //     return res.status(400).json({ errors: [{msg:'User already exists'}]});
-
-        // }
-
-        // const avatar = gravatar.url(email,{
-        //     s:'200',
-        //     r:'pg',
-        //     d:'mm'
-        // })
-
+        
         menu = new Menu({
             mess,
             item
         });
-
-        // const salt = await bcrypt.genSalt(10);
-
-        // user.password = await bcrypt.hash(password,salt);
 
         await menu.save();
 
@@ -67,18 +51,6 @@ async (req,res) => {
                 id : menu.id
             }
         }
-
-        // jwt.sign(payload,
-        //     config.get('jwtSecret'),
-        //     { expiresIn: 360000 },
-        //     (err,token) =>{
-        //         if(err) throw err;
-        //         res.json({ token })
-        //         localStorage.setItem("sessionUser",token);
-        //     }
-        //     );
-
-        // res.send('User Registered')
 
     } catch (error) {
         console.error(error.message);
