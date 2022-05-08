@@ -31,6 +31,7 @@ app.use('/api/profile',require('./routes/api/profile'));
 app.use('/api/admin',require('./routes/api/admin'));
 app.use('/api/authadmin',require('./routes/api/authadmin'));
 app.use('/api/menu', require('./routes/api/menu'))
+app.use('/api/commentsection', require('./routes/api/commentsection'))
 
 
 

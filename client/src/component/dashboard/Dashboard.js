@@ -21,6 +21,12 @@ const Dashboard = ({
             <i className="fas fa-user" /> Welcome {user && user.name}
         </p>
         <Link to="/show_data"> show Menu </Link>
+        <br/>
+        <br/>
+        <Link to="/add_comment"> Write your Review </Link>
+        <br/>
+        <br/>
+        <Link to="/show_comment"> show Reviews </Link>
         
 
     </Fragment>;

@@ -23,6 +23,8 @@ import adminDashboard from './component/dashboard/adminDashboard';
 import AddDeleteTableRows from './addTable/addDeleteTable';
 import Additem from './addTable/Additem';
 import Showdata from './component/dashboard/Showdata';
+import Showcomment from './component/dashboard/Showcomment';
+import Addcomment from './addTable/Addcomment';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -54,6 +56,8 @@ const App = () => {
             <Route path="add_delete" element={<AddDeleteTableRows />} />
             <Route path="add_item" element={<Additem />} />
             <Route path="show_data" element={<Showdata />} />
+            <Route path="show_comment" element={<Showcomment />} />
+            <Route path="add_comment" element={<Addcomment />} />
           </Routes>
         </Fragment>
       </Router>
