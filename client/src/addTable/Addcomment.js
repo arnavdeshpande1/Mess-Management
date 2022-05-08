@@ -8,10 +8,11 @@ export const Addcomment = () => {
 
   const [formData,setFormData] = useState({
     mess:'',
-    comment:''
+    comment:'',
+    rating:''
   });
 
-  const {mess,comment} = formData;
+  const {mess,comment,rating} = formData;
 
   const onChange = e => setFormData({
     ...formData, [e.target.name]:e.target.value
@@ -27,14 +28,8 @@ export const Addcomment = () => {
     axios.post(`${API}/commentsection`,formData,config).then(res =>{
         alert("post successful");
     }).catch(err => alert(err));
-    // menu_item(mess,item);
+    
   };
-
-//   //Redirect if looged in
-//   if (isAuthenticated) {
-//     // console.log(0);
-//     return <Navigate to="/dashboard" />;
-//   }
 
   return (
     <Fragment>
@@ -48,6 +43,10 @@ export const Addcomment = () => {
         <div className="form-group">
           <input type="text" placeholder="Write Your Comment Here" name="comment" value={comment}  onChange={e=>onChange(e)} required />
         </div>
+
+        <div className="form-group">
+          <input type="number" placeholder="Rating" name="rating" value={rating}  min="1" max="5" onChange={e=>onChange(e)} required />
+        </div>
         
         <input type="submit" className="btn btn-primary" value="save" />
       </form>
@@ -55,15 +54,5 @@ export const Addcomment = () => {
     </Fragment>
   )
 }
-
-// Addcomment.propTypes = {
-//   login:PropTypes.func.isRequired,
-//   isAuthenticated: PropTypes.bool
-// }
-
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: state.auth.isAuthenticated
-// });
-
 
 export default Addcomment;

@@ -18,12 +18,15 @@ function TableData() {
                 res.json())
  
             .then((response) => {
-                console.log(response);
                 getData(response);
             })
- 
     }
-    // console.log(data)
+    var arr = []
+    data.map((item, i) => (
+        
+        arr.push([item.mess,item.rating])
+    ))
+    
     return (
         <>
             <h1>Reviews</h1>
@@ -31,12 +34,15 @@ function TableData() {
                 <tr>
                     <th>Mess Name</th>
                     <th>Comments</th>
+                    <th>Rating</th>
                     
                 </tr>
                 {data.map((item, i) => (
+                    
                     <tr key={i}>
                         <td>{item.mess}</td>
                         <td>{item.comment}</td>
+                        <td>{item.rating}</td>
                         
                     </tr>
                 ))}

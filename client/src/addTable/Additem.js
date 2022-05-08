@@ -48,7 +48,7 @@ export const Additem = () => {
         <div className="form-group">
           <input type="text" placeholder="Item Name" name="item" value={item}  onChange={e=>onChange(e)} required />
         </div>
-        
+
         <input type="submit" className="btn btn-primary" value="save" />
       </form>
       
