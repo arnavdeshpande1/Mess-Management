@@ -55,7 +55,7 @@
 
 
     - name: stop previous back-end container
-      shell: docker rm -f arnavdeshpande1/major_project:server
+      shell: docker rm -f arnavdeshpande1/major_project:server1
 
     - name: stop previous front-end container
       shell: docker rm -f arnavdeshpande1/major_project:client1
