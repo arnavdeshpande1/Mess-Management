@@ -18,11 +18,11 @@ describe('POST /register', function () {
 describe('POST /login', function () {
     it('login with user', function (done) {
         let data = {
-            "email":"arnav_testing1@gmail.com",
+            "email":"arnav@gmail.com",
             "password":"123456" 
         }
         req(app)
-            .post('/api/users/login')
+            .post('/api/auth')
             .send(data)
             .expect(200, done)
     })
