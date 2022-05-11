@@ -25,6 +25,11 @@ import Additem from './addTable/Additem';
 import Showdata from './component/dashboard/Showdata';
 import Showcomment from './component/dashboard/Showcomment';
 import Addcomment from './addTable/Addcomment';
+import Rate from './component/Rating';
+import { FirstPage } from './component/layouts/FirstPage';
+import AdminSecondPage from './component/layouts/AdminSecondPage';
+import { Landing1 } from './component/layouts/Landing1';
+import { Landing2 } from './component/layouts/Landing2';
 
 if(localStorage.token){
   setAuthToken(localStorage.token);
@@ -44,7 +49,7 @@ const App = () => {
           <Navbar />
           <Alert />
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<FirstPage />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
             <Route path="dashboard" element={<PrivateRoute component={Dashboard} />} />
@@ -58,6 +63,11 @@ const App = () => {
             <Route path="show_data" element={<Showdata />} />
             <Route path="show_comment" element={<Showcomment />} />
             <Route path="add_comment" element={<Addcomment />} />
+            <Route path="rating" element={<Rate />} />
+            {/* <Route path="homepage" element={<FirstPage />} /> */}
+            <Route path="verification" element={<AdminSecondPage />} />
+            <Route path="admin_landing" element={<Landing1 />} />
+            <Route path="user_landing" element={<Landing2 />} />
           </Routes>
         </Fragment>
       </Router>

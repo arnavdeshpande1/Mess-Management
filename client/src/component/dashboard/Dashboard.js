@@ -20,14 +20,15 @@ const Dashboard = ({
         <p className="lead">
             <i className="fas fa-user" /> Welcome {user && user.name}
         </p>
-        <Link to="/show_data"> show Menu </Link>
+        <div className="buttons">
+        <Link to="/show_data" className="btn btn-primary"> show Menu </Link>
         <br/>
         <br/>
-        <Link to="/add_comment"> Write your Review </Link>
+        <Link to="/add_comment" className="btn btn-primary"> Write your Review </Link>
         <br/>
         <br/>
-        <Link to="/show_comment"> show Reviews </Link>
-        
+        <Link to="/show_comment" className="btn btn-primary"> show Reviews </Link>
+        </div>
 
     </Fragment>;
 };

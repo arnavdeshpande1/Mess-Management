@@ -42,7 +42,7 @@ export const loadUser = () => async (dispatch) => {
 
   };
 
-//Load User
+//Load menu
 
 export const loadmenu = () => async (dispatch) => {
     
@@ -254,3 +254,37 @@ export const admin_login = (email,password) => async dispatch =>{
 //     const body = JSON.stringify({mess,item});
     
 // };
+
+//Verification
+export const verification = (password) => async dispatch =>{
+    
+    const config = {
+        headers : {
+            'Content-Type' : 'application/json'
+        }
+    }
+
+    const body = JSON.stringify({password});
+
+    try {
+        const res = await axios.post(`${API}/auth`,body,config);
+    
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: res.data
+        });
+
+        dispatch(loadUser());
+
+      } catch (err) {
+        const errors = err.response.data.errors;
+
+        if(errors){
+            errors.forEach(error => 
+                dispatch(setAlert(error.msg,'danger'))); 
+        }
+        dispatch({
+        type: LOGIN_FAIL
+        });
+      }
+};

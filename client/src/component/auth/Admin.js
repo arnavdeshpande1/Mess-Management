@@ -49,7 +49,7 @@ export const AdminLogin = ({ admin_login,isAuthenticated }) => {
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
       <p className="my-1">
-        Don't have an account? <Link to="/register">Sign UP</Link>
+        Don't have an account? <Link to="/admin_register">Sign UP</Link>
       </p>
     </Fragment>
   )

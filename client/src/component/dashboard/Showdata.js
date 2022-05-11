@@ -39,18 +39,6 @@ function TableData() {
                         <td>{item.item}</td>
                     </tr>
                 ))}
-                {data.map((item, i) => (
-                    
-                    <tr key={i}>
-                        <td>
-                        <script>
-                            if (item.mess === a)
-                                {item.mess}
-                        </script>
-                        </td>
-                        <td>{item.item}</td>
-                    </tr>
-                ))}
             </tbody>
  
         </>

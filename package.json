@@ -24,7 +24,9 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^10.0.0",
     "mongoose": "^6.2.8",
-    "request": "^2.88.2"
+    "react-icons": "^4.3.1",
+    "request": "^2.88.2",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",

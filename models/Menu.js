@@ -9,6 +9,11 @@ const MenuSchema = new mongoose.Schema({
     item:{
         type:String,
         required:true
+    },
+    expireAt: {
+        type: Date,
+        default: Date.now,
+        index: { expires: '1d' },
     }
 })
 

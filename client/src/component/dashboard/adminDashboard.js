@@ -25,9 +25,9 @@ const adminDashboard = ({
             <i className="fas fa-user" /> Welcome
         </p>
         <br/>
-
-        <Link to="/add_item">Add In the Table</Link>
-        
+        <div className="buttons">
+        <Link to="/add_item" className="btn btn-primary">Add In the Table</Link>
+        </div>
         </Fragment>;
 };
 
