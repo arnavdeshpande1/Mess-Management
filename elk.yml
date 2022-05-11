@@ -1,38 +1,23 @@
-version: "3"
+version: '3.6'
 services:
-  react-app:
-    image: arnavdeshpande1/major_project:client1
-    stdin_open: true
-    ports:
-      - "3000:3000"
-    networks:
-      - mern-app
-  api-server:
-    image: arnavdeshpande1/major_project:server1
-    ports:
-      - "5000:5000"
-    networks:
-      - mern-app
   Elasticsearch:
     image: elasticsearch:7.16.2
     container_name: elasticsearch
     restart: always
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
-      discovery.type: single-node  
-    depends_on:
-      - api-server    
+      discovery.type: single-node    
     ports:
     - '9200:9200'
     - '9300:9300'
     networks:
-      - mern-app
+      - elk
 
   Logstash:
     image: logstash:7.16.2
     container_name: logstash
     restart: always
-    command: logstash -f ./logstash.conf 
+    command: logstash -f /logstash_dir/logstash.conf 
     depends_on:
       - Elasticsearch
     ports:
@@ -40,7 +25,7 @@ services:
     environment:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"    
     networks:
-      - mern-app
+      - elk
 
   Kibana:
     image: kibana:7.16.2
@@ -53,7 +38,7 @@ services:
     depends_on:
       - Elasticsearch  
     networks:
-      - mern-app
+      - elk
+
 networks:
-  mern-app:
-    driver: bridge
+  elk:

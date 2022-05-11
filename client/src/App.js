@@ -25,7 +25,6 @@ import Additem from './addTable/Additem';
 import Showdata from './component/dashboard/Showdata';
 import Showcomment from './component/dashboard/Showcomment';
 import Addcomment from './addTable/Addcomment';
-import Rate from './component/Rating';
 import { FirstPage } from './component/layouts/FirstPage';
 import AdminSecondPage from './component/layouts/AdminSecondPage';
 import { Landing1 } from './component/layouts/Landing1';
