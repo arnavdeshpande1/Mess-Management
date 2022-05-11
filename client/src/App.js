@@ -63,7 +63,7 @@ const App = () => {
             <Route path="show_data" element={<Showdata />} />
             <Route path="show_comment" element={<Showcomment />} />
             <Route path="add_comment" element={<Addcomment />} />
-            <Route path="rating" element={<Rate />} />
+            
             {/* <Route path="homepage" element={<FirstPage />} /> */}
             <Route path="verification" element={<AdminSecondPage />} />
             <Route path="admin_landing" element={<Landing1 />} />
