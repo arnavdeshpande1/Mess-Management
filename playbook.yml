@@ -3,7 +3,7 @@
   hosts: all
   tasks:
     - name: copy docker compose file
-      copy: 
+      copy:
         src: ./docker-compose.yml
         dest: ./
 
@@ -15,13 +15,11 @@
     - name: docker compose pull
       command: docker-compose pull
 
-
     - name: stop previous back-end container
       shell: docker rm -f arnavdeshpande1/major_project:server1
 
     - name: stop previous front-end container
       shell: docker rm -f arnavdeshpande1/major_project:client1
-
 
     - name: running docker compose file
       shell: docker-compose up -d
