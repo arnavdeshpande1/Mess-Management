@@ -264,3 +264,5 @@ Wed, 11 May 2022 06:54:41 GMT GET /api/profile/me 400 43 - 50.292 ms
 Wed, 11 May 2022 06:54:41 GMT GET /api/profile/me 400 43 - 48.100 ms
 Wed, 11 May 2022 12:26:14 GMT GET /api/auth 304 - - 92.861 ms
 Wed, 11 May 2022 12:26:14 GMT GET /api/auth 304 - - 60.559 ms
+Wed, 11 May 2022 12:54:54 GMT GET /api/auth 401 40 - 3.545 ms
+Wed, 11 May 2022 12:54:54 GMT GET /api/auth 401 40 - 0.575 ms
