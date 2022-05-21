@@ -24,6 +24,6 @@ describe('POST /login', function () {
         req(app)
             .post('/api/auth')
             .send(data)
-            .expect(400, done)
+            .expect(200, done)
     })
 })
